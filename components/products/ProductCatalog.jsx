@@ -100,7 +100,7 @@ export default function ProductCatalog() {
           </h2>
           {searchQuery && (
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Search results matching <strong className="text-slate-900">"{searchQuery}"</strong>
+              Search results matching <strong className="text-slate-900">&quot;{searchQuery}&quot;</strong>
             </p>
           )}
         </div>

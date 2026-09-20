@@ -180,7 +180,7 @@ export default function CartDrawer() {
               {appliedCoupon ? (
                 <div className="flex items-center justify-between p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-xs">
                   <span className="text-emerald-800 font-bold flex items-center gap-1">
-                    <Tag className="w-3.5 h-3.5" /> Coupon "{appliedCoupon.code}"
+                    <Tag className="w-3.5 h-3.5" /> Coupon &quot;{appliedCoupon.code}&quot;
                   </span>
                   <button onClick={removeCoupon} className="text-rose-600 font-bold text-[11px]">Remove</button>
                 </div>
