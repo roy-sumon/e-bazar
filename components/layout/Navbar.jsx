@@ -50,11 +50,8 @@ export default function Navbar() {
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-1">
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
                   E-<span className="text-emerald-600">Bazar</span>
-                  <span className="text-[9px] sm:text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
-                    Pro
-                  </span>
                 </span>
                 <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-wide hidden xs:inline">
                   Multi-Vendor Marketplace

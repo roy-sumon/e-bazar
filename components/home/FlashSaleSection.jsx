@@ -62,18 +62,18 @@ export default function FlashSaleSection() {
             <span className="text-[10px] sm:text-xs font-medium text-rose-200 mr-1 sm:mr-2 uppercase tracking-wider">
               Ends In:
             </span>
-            <div className="flex items-center gap-1 sm:gap-1.5 font-mono font-black text-xs sm:text-base">
-              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg">
+            <div className="flex items-center gap-1 sm:gap-1.5 font-mono font-black text-xs sm:text-base" suppressHydrationWarning>
+              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg" suppressHydrationWarning>
                 {String(timeLeft.hours).padStart(2, "0")}
                 <span className="block text-[8px] sm:text-[9px] font-sans font-normal text-rose-200 text-center">HRS</span>
               </div>
               <span className="text-amber-300 font-bold">:</span>
-              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg">
+              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg" suppressHydrationWarning>
                 {String(timeLeft.minutes).padStart(2, "0")}
                 <span className="block text-[8px] sm:text-[9px] font-sans font-normal text-rose-200 text-center">MIN</span>
               </div>
               <span className="text-amber-300 font-bold">:</span>
-              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-amber-300">
+              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-amber-300" suppressHydrationWarning>
                 {String(timeLeft.seconds).padStart(2, "0")}
                 <span className="block text-[8px] sm:text-[9px] font-sans font-normal text-rose-200 text-center">SEC</span>
               </div>
