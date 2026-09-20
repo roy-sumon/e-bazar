@@ -8,17 +8,17 @@ export default function FeaturedVendors() {
   const { vendors, products, setActiveVendorId } = useStore();
 
   return (
-    <section id="featured-vendors" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
+    <section id="featured-vendors" className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
         <div>
-          <div className="flex items-center gap-2 text-brand-600 font-bold text-xs uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-wider mb-1">
             <Store className="w-4 h-4" />
             <span>Multi-Vendor Network</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Shop Verified Flagship Stores
           </h2>
-          <p className="text-slate-500 text-sm mt-1">
+          <p className="text-slate-500 text-xs sm:text-sm mt-1">
             Direct access to official brands, authorized distributors, and vetted artisan studios.
           </p>
         </div>
@@ -29,7 +29,7 @@ export default function FeaturedVendors() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {vendors.map((vendor) => {
           // Get sample products for this vendor
           const vendorProducts = products.filter((p) => p.vendorId === vendor.id).slice(0, 3);
@@ -37,7 +37,7 @@ export default function FeaturedVendors() {
           return (
             <div
               key={vendor.id}
-              className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               {/* Vendor Cover Banner */}
               <div className="relative h-28 w-full bg-slate-800 overflow-hidden">
@@ -126,7 +126,7 @@ export default function FeaturedVendors() {
                 {/* Visit Store Button */}
                 <button
                   onClick={() => setActiveVendorId(vendor.id)}
-                  className="w-full mt-2 bg-slate-100 hover:bg-brand-600 hover:text-white text-slate-800 font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5"
+                  className="w-full mt-2 bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-800 font-bold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5"
                 >
                   <span>Visit Storefront</span>
                   <ArrowRight className="w-3.5 h-3.5" />

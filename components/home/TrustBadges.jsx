@@ -32,25 +32,25 @@ export default function TrustBadges() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         {BADGES.map((b, idx) => {
           const Icon = b.icon;
           return (
             <div
               key={idx}
-              className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex items-center gap-4"
+              className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4"
             >
               <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border ${b.color}`}
+                className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 border ${b.color}`}
               >
-                <Icon className="w-6 h-6" />
+                <Icon className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900 leading-snug">
+                <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
                   {b.title}
                 </h4>
-                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                <p className="text-[10px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1 leading-tight sm:leading-relaxed line-clamp-2">
                   {b.description}
                 </p>
               </div>

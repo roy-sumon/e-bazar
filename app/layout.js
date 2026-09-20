@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "ZenithMart - Modern Multi-Vendor Marketplace",
-  description: "Experience the next-generation multi-vendor e-commerce platform. Shop verified official brand stores, flash sale discounts, and high-performance products.",
+  title: "E-Bazar - Modern Multi-Vendor Marketplace",
+  description: "Experience E-Bazar, the next-generation multi-vendor e-commerce platform. Shop verified brand flagship stores, flash sale discounts, and authentic products.",
 };
 
 export default function RootLayout({ children }) {

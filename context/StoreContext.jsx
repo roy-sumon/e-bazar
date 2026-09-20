@@ -6,21 +6,13 @@ import { PRODUCTS, VENDORS, COUPONS } from "@/data/mockData";
 const StoreContext = createContext();
 
 export function StoreProvider({ children }) {
-  // Products state (includes default products + seller-created products)
   const [products, setProducts] = useState(PRODUCTS);
   const [vendors, setVendors] = useState(VENDORS);
-
-  // Cart state
   const [cart, setCart] = useState([]);
   const [appliedCoupon, setAppliedCoupon] = useState(null);
-
-  // Wishlist state
   const [wishlist, setWishlist] = useState([]);
-
-  // Orders state
   const [orders, setOrders] = useState([]);
 
-  // Currency
   const [currency, setCurrency] = useState("USD");
   const currencyRates = {
     USD: { symbol: "$", rate: 1 },
@@ -28,7 +20,6 @@ export function StoreProvider({ children }) {
     BDT: { symbol: "৳", rate: 120 }
   };
 
-  // Modals & Drawers state
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -37,7 +28,6 @@ export function StoreProvider({ children }) {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [activeVendorId, setActiveVendorId] = useState(null);
 
-  // Filters state
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedVendor, setSelectedVendor] = useState("all");
@@ -45,22 +35,20 @@ export function StoreProvider({ children }) {
   const [minRating, setMinRating] = useState(0);
   const [sortBy, setSortBy] = useState("featured");
 
-  // Toasts
   const [toasts, setToasts] = useState([]);
 
-  // Load saved state from LocalStorage on mount
   useEffect(() => {
     try {
-      const savedCart = localStorage.getItem("zenith_cart");
+      const savedCart = localStorage.getItem("ebazar_cart") || localStorage.getItem("zenith_cart");
       if (savedCart) setCart(JSON.parse(savedCart));
 
-      const savedWishlist = localStorage.getItem("zenith_wishlist");
+      const savedWishlist = localStorage.getItem("ebazar_wishlist") || localStorage.getItem("zenith_wishlist");
       if (savedWishlist) setWishlist(JSON.parse(savedWishlist));
 
-      const savedOrders = localStorage.getItem("zenith_orders");
+      const savedOrders = localStorage.getItem("ebazar_orders") || localStorage.getItem("zenith_orders");
       if (savedOrders) setOrders(JSON.parse(savedOrders));
 
-      const savedSellerProds = localStorage.getItem("zenith_seller_products");
+      const savedSellerProds = localStorage.getItem("ebazar_seller_products") || localStorage.getItem("zenith_seller_products");
       if (savedSellerProds) {
         const parsed = JSON.parse(savedSellerProds);
         setProducts([...parsed, ...PRODUCTS]);
@@ -70,34 +58,30 @@ export function StoreProvider({ children }) {
     }
   }, []);
 
-  // Sync cart to LocalStorage
   useEffect(() => {
     try {
-      localStorage.setItem("zenith_cart", JSON.stringify(cart));
+      localStorage.setItem("ebazar_cart", JSON.stringify(cart));
     } catch (e) {
       console.error(e);
     }
   }, [cart]);
 
-  // Sync wishlist to LocalStorage
   useEffect(() => {
     try {
-      localStorage.setItem("zenith_wishlist", JSON.stringify(wishlist));
+      localStorage.setItem("ebazar_wishlist", JSON.stringify(wishlist));
     } catch (e) {
       console.error(e);
     }
   }, [wishlist]);
 
-  // Sync orders to LocalStorage
   useEffect(() => {
     try {
-      localStorage.setItem("zenith_orders", JSON.stringify(orders));
+      localStorage.setItem("ebazar_orders", JSON.stringify(orders));
     } catch (e) {
       console.error(e);
     }
   }, [orders]);
 
-  // Toast helper
   const addToast = (message, type = "success") => {
     const id = Date.now() + Math.random();
     setToasts((prev) => [...prev, { id, message, type }]);
@@ -110,7 +94,6 @@ export function StoreProvider({ children }) {
     setToasts((prev) => prev.filter((t) => t.id !== id));
   };
 
-  // Format currency
   const formatPrice = (usdAmount) => {
     const { symbol, rate } = currencyRates[currency] || currencyRates.USD;
     const converted = usdAmount * rate;
@@ -120,7 +103,6 @@ export function StoreProvider({ children }) {
     return `${symbol}${converted.toFixed(2)}`;
   };
 
-  // Cart operations
   const addToCart = (product, quantity = 1, options = {}) => {
     setCart((prevCart) => {
       const itemKey = `${product.id}-${options.color || ""}-${options.size || ""}`;
@@ -144,7 +126,7 @@ export function StoreProvider({ children }) {
         ];
       }
     });
-    addToast(`Added "${product.title.slice(0, 28)}..." to cart!`, "success");
+    addToast(`Added "${product.title.slice(0, 26)}..." to cart!`, "success");
   };
 
   const removeFromCart = (itemKey) => {
@@ -169,13 +151,12 @@ export function StoreProvider({ children }) {
     setAppliedCoupon(null);
   };
 
-  // Multi-vendor grouping for cart
   const cartByVendor = cart.reduce((acc, item) => {
-    const vId = item.product.vendorId || "zenith-direct";
+    const vId = item.product.vendorId || "ebazar-direct";
     if (!acc[vId]) {
       const vendorData = vendors.find((v) => v.id === vId) || {
         id: vId,
-        name: "Zenith Direct Marketplace",
+        name: "E-Bazar Direct Marketplace",
         badge: "Marketplace Verified"
       };
       acc[vId] = {
@@ -196,7 +177,6 @@ export function StoreProvider({ children }) {
 
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  // Discount calculation
   let discountAmount = 0;
   if (appliedCoupon) {
     if (appliedCoupon.type === "percent") {
@@ -206,7 +186,6 @@ export function StoreProvider({ children }) {
     }
   }
 
-  // Shipping calculation: Free over $150 or if FREESHIP applied
   const standardShippingFee = cart.length > 0 ? (cartSubtotal >= 150 ? 0 : 15.00) : 0;
   const shippingFee = appliedCoupon?.code === "FREESHIP" ? 0 : standardShippingFee;
   const cartFinalTotal = Math.max(0, cartSubtotal - discountAmount + shippingFee);
@@ -223,7 +202,7 @@ export function StoreProvider({ children }) {
       addToast(`Coupon "${trimmed}" applied successfully!`, "success");
       return true;
     } else {
-      addToast("Invalid coupon code. Try 'ZENITH20' or 'WELCOME10'", "error");
+      addToast("Invalid coupon. Try 'EBAZAR20' or 'WELCOME10'", "error");
       return false;
     }
   };
@@ -233,7 +212,6 @@ export function StoreProvider({ children }) {
     addToast("Coupon removed", "info");
   };
 
-  // Wishlist operations
   const toggleWishlist = (product) => {
     const exists = wishlist.some((item) => item.id === product.id);
     if (exists) {
@@ -249,10 +227,9 @@ export function StoreProvider({ children }) {
     return wishlist.some((item) => item.id === productId);
   };
 
-  // Order Placement
   const placeOrder = (customerDetails) => {
     const newOrder = {
-      id: `ZM-${Date.now().toString().slice(-6)}`,
+      id: `EB-${Date.now().toString().slice(-6)}`,
       date: new Date().toISOString(),
       customer: customerDetails,
       items: [...cart],
@@ -276,7 +253,6 @@ export function StoreProvider({ children }) {
     return newOrder;
   };
 
-  // Seller Dashboard: Add New Product
   const addSellerProduct = (newProductData) => {
     const created = {
       id: `custom-${Date.now()}`,
@@ -305,21 +281,19 @@ export function StoreProvider({ children }) {
       }
     };
 
-    // Update state & persist custom products
     setProducts((prev) => [created, ...prev]);
     try {
-      const savedSellerProds = localStorage.getItem("zenith_seller_products");
+      const savedSellerProds = localStorage.getItem("ebazar_seller_products");
       const currentList = savedSellerProds ? JSON.parse(savedSellerProds) : [];
-      localStorage.setItem("zenith_seller_products", JSON.stringify([created, ...currentList]));
+      localStorage.setItem("ebazar_seller_products", JSON.stringify([created, ...currentList]));
     } catch (e) {
       console.error(e);
     }
 
-    addToast(`"${created.title.slice(0, 24)}..." published to marketplace!`, "success");
+    addToast(`"${created.title.slice(0, 22)}..." published to E-Bazar catalog!`, "success");
     return created;
   };
 
-  // Filter Reset
   const resetFilters = () => {
     setSearchQuery("");
     setSelectedCategory("all");
@@ -402,4 +376,3 @@ export function useStore() {
   }
   return context;
 }
-

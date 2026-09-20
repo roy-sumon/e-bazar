@@ -14,7 +14,7 @@ export const VENDORS = [
     location: "Tokyo / Global Hub",
     avatar: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=200&auto=format&fit=crop&q=80",
     banner: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&auto=format&fit=crop&q=80",
-    description: "Welcome to the Sony Official Flagship on ZenithMart. Discover class-leading audio technology, wireless active noise-canceling headphones, cameras, and gaming gear with manufacturer warranty."
+    description: "Welcome to the Sony Official Flagship on E-Bazar. Discover class-leading audio technology, wireless active noise-canceling headphones, cameras, and gaming gear with manufacturer warranty."
   },
   {
     id: "aetheria-apparel",
@@ -31,7 +31,7 @@ export const VENDORS = [
     location: "Milan, Italy",
     avatar: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=200&auto=format&fit=crop&q=80",
     banner: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&auto=format&fit=crop&q=80",
-    description: "Modern minimalist fashion, tailored artisan garments, and contemporary streetwear designed with premium sustainable fabrics."
+    description: "Modern minimalist fashion, tailored artisan garments, and contemporary streetwear designed with premium sustainable fabrics on E-Bazar."
   },
   {
     id: "anker-tech",
@@ -48,7 +48,7 @@ export const VENDORS = [
     location: "California, USA",
     avatar: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=200&auto=format&fit=crop&q=80",
     banner: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&auto=format&fit=crop&q=80",
-    description: "The global pioneer in charging technology, GaN fast chargers, magnetic power banks, and ergonomic workplace accessories."
+    description: "The global pioneer in charging technology, GaN fast chargers, magnetic power banks, and workplace gear on E-Bazar."
   },
   {
     id: "nordic-living",
@@ -65,7 +65,7 @@ export const VENDORS = [
     location: "Copenhagen, Denmark",
     avatar: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=200&auto=format&fit=crop&q=80",
     banner: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&auto=format&fit=crop&q=80",
-    description: "Elevating everyday home living with Scandinavian craftsmanship, ceramic stoneware, ambient smart lighting, and ergonomic furniture."
+    description: "Elevating home spaces with Scandinavian craftsmanship, ceramic stoneware, ambient smart lighting, and ergonomic furniture on E-Bazar."
   },
   {
     id: "glowup-beauty",
@@ -82,7 +82,7 @@ export const VENDORS = [
     location: "Seoul, South Korea",
     avatar: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=200&auto=format&fit=crop&q=80",
     banner: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&auto=format&fit=crop&q=80",
-    description: "Botanical extracts, cruelty-free formulas, dermatologist-approved skincare serums, and luxury organic self-care essentials."
+    description: "Botanical extracts, cruelty-free formulas, dermatologist-approved skincare serums, and luxury organic self-care on E-Bazar."
   },
   {
     id: "apex-chronos",
@@ -99,7 +99,7 @@ export const VENDORS = [
     location: "Geneva, Switzerland",
     avatar: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=200&auto=format&fit=crop&q=80",
     banner: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&auto=format&fit=crop&q=80",
-    description: "Precision engineered automatic horology, sapphire crystal timepieces, and aviation chronographs built for discerning collectors."
+    description: "Precision engineered automatic horology, sapphire crystal timepieces, and aviation chronographs on E-Bazar."
   }
 ];
 
@@ -126,7 +126,6 @@ export const PRODUCTS = [
     reviewsCount: 1420,
     stock: 28,
     isFlashSale: true,
-    flashSaleEnds: Date.now() + 1000 * 60 * 60 * 8, // 8 hours from now
     claimedPercent: 78,
     tags: ["Bestseller", "Official Warranty", "Free 2-Day Air"],
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700&auto=format&fit=crop&q=80",
@@ -161,7 +160,6 @@ export const PRODUCTS = [
     reviewsCount: 312,
     stock: 12,
     isFlashSale: true,
-    flashSaleEnds: Date.now() + 1000 * 60 * 60 * 8,
     claimedPercent: 88,
     tags: ["Luxury", "Swiss Movement", "Sapphire Glass"],
     image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=700&auto=format&fit=crop&q=80",
@@ -223,7 +221,6 @@ export const PRODUCTS = [
     reviewsCount: 460,
     stock: 18,
     isFlashSale: true,
-    flashSaleEnds: Date.now() + 1000 * 60 * 60 * 8,
     claimedPercent: 62,
     tags: ["Handcrafted", "Winter Collection", "Sustainable"],
     image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=700&auto=format&fit=crop&q=80",
@@ -285,7 +282,6 @@ export const PRODUCTS = [
     reviewsCount: 1890,
     stock: 60,
     isFlashSale: true,
-    flashSaleEnds: Date.now() + 1000 * 60 * 60 * 8,
     claimedPercent: 91,
     tags: ["Clean Beauty", "Vegan & Cruelty Free", "Clinical Strength"],
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=700&auto=format&fit=crop&q=80",
@@ -372,7 +368,6 @@ export const PRODUCTS = [
     reviewsCount: 920,
     stock: 35,
     isFlashSale: true,
-    flashSaleEnds: Date.now() + 1000 * 60 * 60 * 8,
     claimedPercent: 74,
     tags: ["LDAC Hi-Res", "Foldable FlexiCurve", "60h Playtime"],
     image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=700&auto=format&fit=crop&q=80",
@@ -474,9 +469,10 @@ export const PRODUCTS = [
 ];
 
 export const COUPONS = {
-  "ZENITH20": { discount: 0.20, type: "percent", desc: "20% off entire order" },
+  "EBAZAR20": { discount: 0.20, type: "percent", desc: "20% off entire E-Bazar order" },
+  "EBAZAR10": { discount: 0.10, type: "percent", desc: "10% off for E-Bazar shoppers" },
+  "ZENITH20": { discount: 0.20, type: "percent", desc: "20% off promotional discount" },
   "WELCOME10": { discount: 0.10, type: "percent", desc: "10% Welcome discount" },
   "SAVE50": { discount: 50.00, type: "fixed", minSpend: 200, desc: "$50 off on orders over $200" },
   "FREESHIP": { discount: 15.00, type: "shipping", desc: "Free Express Shipping" }
 };
-

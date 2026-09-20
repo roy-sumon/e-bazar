@@ -28,7 +28,6 @@ export default function CartDrawer() {
     removeCoupon,
     updateQuantity,
     removeFromCart,
-    clearCart,
     isCartOpen,
     setIsCartOpen,
     setIsCheckoutOpen,
@@ -57,138 +56,113 @@ export default function CartDrawer() {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden bg-slate-950/60 backdrop-blur-sm animate-fade-in">
-      <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
+      <div className="absolute inset-y-0 right-0 max-w-full flex">
         <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between">
-          {/* Header */}
-          <div className="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-brand-600 text-white flex items-center justify-center">
-                <ShoppingBag className="w-5 h-5" />
+          <div className="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center">
+                <ShoppingBag className="w-4 h-4" />
               </div>
               <div>
-                <h2 className="text-base font-black text-slate-900">Your Shopping Cart</h2>
-                <span className="text-[11px] text-slate-500 font-medium">
-                  {cart.length} unique item{cart.length !== 1 ? "s" : ""} across {vendorGroups.length} vendor{vendorGroups.length !== 1 ? "s" : ""}
+                <h2 className="text-sm sm:text-base font-black text-slate-900">E-Bazar Cart</h2>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium">
+                  {cart.length} item{cart.length !== 1 ? "s" : ""} across {vendorGroups.length} store{vendorGroups.length !== 1 ? "s" : ""}
                 </span>
               </div>
             </div>
 
             <button
               onClick={() => setIsCartOpen(false)}
-              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 transition-colors"
+              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Free Shipping Progress Indicator */}
           {cart.length > 0 && (
-            <div className="bg-brand-50 border-b border-brand-100 p-3.5 px-6">
-              <div className="flex items-center justify-between text-xs font-bold mb-1.5">
-                <span className="flex items-center gap-1.5 text-brand-900">
-                  <Truck className="w-4 h-4 text-brand-600" />
-                  {freeShippingNeeded === 0 ? "You unlocked Free Express Shipping!" : `Add ${formatPrice(freeShippingNeeded)} more for Free Shipping`}
+            <div className="bg-emerald-50 border-b border-emerald-100 p-2.5 px-4 sm:px-6">
+              <div className="flex items-center justify-between text-[11px] font-bold mb-1">
+                <span className="flex items-center gap-1 text-emerald-900">
+                  <Truck className="w-3.5 h-3.5 text-emerald-600" />
+                  {freeShippingNeeded === 0 ? "Unlocked Free Express Shipping!" : `Add ${formatPrice(freeShippingNeeded)} for Free Shipping`}
                 </span>
-                <span className="text-brand-700">{Math.min(100, Math.round((cartSubtotal / freeShippingThreshold) * 100))}%</span>
+                <span className="text-emerald-700">{Math.min(100, Math.round((cartSubtotal / freeShippingThreshold) * 100))}%</span>
               </div>
-              <div className="w-full h-1.5 bg-brand-200 rounded-full overflow-hidden">
+              <div className="w-full h-1 bg-emerald-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-brand-600 rounded-full transition-all duration-500"
+                  className="h-full bg-emerald-600 rounded-full transition-all duration-500"
                   style={{ width: `${Math.min(100, (cartSubtotal / freeShippingThreshold) * 100)}%` }}
                 />
               </div>
             </div>
           )}
 
-          {/* Scrollable Cart Items grouped by Vendor */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
             {cart.length === 0 ? (
-              <div className="text-center py-16">
-                <ShoppingBag className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-                <h3 className="text-base font-bold text-slate-800">Your cart is empty</h3>
-                <p className="text-xs text-slate-500 mt-1 max-w-xs mx-auto mb-6">
-                  Explore verified vendor collections and flash sale discounts to add items to your bag.
-                </p>
+              <div className="text-center py-12">
+                <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+                <h3 className="text-sm font-bold text-slate-800">Your cart is empty</h3>
+                <p className="text-xs text-slate-500 mt-1 mb-4">Explore verified vendor collections on E-Bazar.</p>
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs px-6 py-2.5 rounded-xl transition-colors"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-2 rounded-xl"
                 >
-                  Continue Shopping
+                  Start Shopping
                 </button>
               </div>
             ) : (
               vendorGroups.map(([vId, group], groupIdx) => (
-                <div
-                  key={vId}
-                  className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 space-y-3"
-                >
-                  {/* Vendor Package Header */}
-                  <div className="flex items-center justify-between pb-2 border-b border-slate-200">
-                    <div className="flex items-center gap-2">
-                      <Store className="w-3.5 h-3.5 text-brand-600" />
-                      <span className="text-xs font-bold text-slate-900 truncate max-w-[200px]">
-                        Package {groupIdx + 1}: {group.vendor.name}
+                <div key={vId} className="rounded-xl border border-slate-200 bg-slate-50/50 p-3 space-y-2.5">
+                  <div className="flex items-center justify-between pb-1.5 border-b border-slate-200 text-xs">
+                    <div className="flex items-center gap-1.5">
+                      <Store className="w-3.5 h-3.5 text-emerald-600" />
+                      <span className="font-bold text-slate-900 truncate max-w-[180px]">
+                        Pkg {groupIdx + 1}: {group.vendor.name}
                       </span>
                     </div>
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
-                      Direct Dispatch
+                    <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
+                      Direct
                     </span>
                   </div>
 
-                  {/* Vendor Items */}
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {group.items.map((item) => (
-                      <div
-                        key={item.key}
-                        className="flex gap-3 bg-white p-3 rounded-xl border border-slate-100 shadow-sm"
-                      >
+                      <div key={item.key} className="flex gap-2.5 bg-white p-2.5 rounded-xl border border-slate-100 shadow-sm">
                         <img
                           src={item.product.image}
                           alt={item.product.title}
-                          className="w-16 h-16 rounded-lg object-cover bg-slate-100 shrink-0"
+                          className="w-14 h-14 rounded-lg object-cover bg-slate-100 shrink-0"
                         />
-                        <div className="flex-1 flex flex-col justify-between">
+                        <div className="flex-1 flex flex-col justify-between min-w-0">
                           <div>
-                            <div className="flex justify-between items-start">
-                              <h4 className="text-xs font-bold text-slate-900 line-clamp-1 pr-2">
+                            <div className="flex justify-between items-start gap-1">
+                              <h4 className="text-xs font-bold text-slate-900 truncate pr-1">
                                 {item.product.title}
                               </h4>
-                              <button
-                                onClick={() => removeFromCart(item.key)}
-                                className="text-slate-400 hover:text-rose-500 transition-colors"
-                              >
+                              <button onClick={() => removeFromCart(item.key)} className="text-slate-400 hover:text-rose-500 shrink-0">
                                 <Trash2 className="w-3.5 h-3.5" />
                               </button>
                             </div>
                             {(item.selectedColor || item.selectedSize) && (
-                              <div className="text-[10px] text-slate-500 font-medium">
-                                {item.selectedColor && `Color: ${item.selectedColor} `}
-                                {item.selectedSize && `• Size: ${item.selectedSize}`}
+                              <div className="text-[10px] text-slate-400">
+                                {item.selectedColor && `${item.selectedColor} `}
+                                {item.selectedSize && `• ${item.selectedSize}`}
                               </div>
                             )}
                           </div>
 
-                          <div className="flex items-center justify-between mt-2">
+                          <div className="flex items-center justify-between mt-1.5">
                             <span className="text-xs font-black text-slate-900">
                               {formatPrice(item.product.price * item.quantity)}
                             </span>
 
-                            {/* Quantity buttons */}
                             <div className="flex items-center border border-slate-200 rounded-lg overflow-hidden bg-slate-50">
-                              <button
-                                onClick={() => updateQuantity(item.key, item.quantity - 1)}
-                                className="p-1 hover:bg-slate-200 text-slate-600"
-                              >
-                                <Minus className="w-3 h-3" />
+                              <button onClick={() => updateQuantity(item.key, item.quantity - 1)} className="p-0.5 px-1.5 text-slate-600">
+                                <Minus className="w-2.5 h-2.5" />
                               </button>
-                              <span className="px-2 text-xs font-bold text-slate-900">
-                                {item.quantity}
-                              </span>
-                              <button
-                                onClick={() => updateQuantity(item.key, item.quantity + 1)}
-                                className="p-1 hover:bg-slate-200 text-slate-600"
-                              >
-                                <Plus className="w-3 h-3" />
+                              <span className="px-1.5 text-xs font-bold text-slate-900">{item.quantity}</span>
+                              <button onClick={() => updateQuantity(item.key, item.quantity + 1)} className="p-0.5 px-1.5 text-slate-600">
+                                <Plus className="w-2.5 h-2.5" />
                               </button>
                             </div>
                           </div>
@@ -201,43 +175,31 @@ export default function CartDrawer() {
             )}
           </div>
 
-          {/* Footer & Order Summary */}
           {cart.length > 0 && (
-            <div className="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
-              {/* Coupon input */}
+            <div className="p-4 sm:p-5 bg-slate-50 border-t border-slate-200 space-y-3">
               {appliedCoupon ? (
-                <div className="flex items-center justify-between p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl text-xs">
-                  <div className="flex items-center gap-2 text-emerald-800 font-bold">
-                    <Tag className="w-4 h-4 text-emerald-600" />
-                    <span>Coupon "{appliedCoupon.code}" Applied</span>
-                  </div>
-                  <button
-                    onClick={removeCoupon}
-                    className="text-xs font-bold text-rose-600 hover:underline"
-                  >
-                    Remove
-                  </button>
+                <div className="flex items-center justify-between p-2 bg-emerald-50 border border-emerald-200 rounded-lg text-xs">
+                  <span className="text-emerald-800 font-bold flex items-center gap-1">
+                    <Tag className="w-3.5 h-3.5" /> Coupon "{appliedCoupon.code}"
+                  </span>
+                  <button onClick={removeCoupon} className="text-rose-600 font-bold text-[11px]">Remove</button>
                 </div>
               ) : (
-                <form onSubmit={handleApplyCoupon} className="flex gap-2">
+                <form onSubmit={handleApplyCoupon} className="flex gap-1.5">
                   <input
                     type="text"
-                    placeholder="Coupon code (e.g. ZENITH20)"
+                    placeholder="Coupon (e.g. EBAZAR20)"
                     value={couponCodeInput}
                     onChange={(e) => setCouponCodeInput(e.target.value)}
-                    className="flex-1 bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs uppercase font-semibold focus:outline-none focus:border-brand-600"
+                    className="flex-1 bg-white border border-slate-300 rounded-xl px-3 py-1.5 text-xs uppercase font-semibold focus:outline-none"
                   />
-                  <button
-                    type="submit"
-                    className="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs px-4 py-2 rounded-xl transition-colors"
-                  >
+                  <button type="submit" className="bg-slate-900 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl">
                     Apply
                   </button>
                 </form>
               )}
 
-              {/* Price breakdown */}
-              <div className="space-y-1.5 text-xs">
+              <div className="space-y-1 text-xs">
                 <div className="flex justify-between text-slate-600">
                   <span>Subtotal</span>
                   <span className="font-semibold text-slate-900">{formatPrice(cartSubtotal)}</span>
@@ -249,30 +211,24 @@ export default function CartDrawer() {
                   </div>
                 )}
                 <div className="flex justify-between text-slate-600">
-                  <span>Estimated Shipping</span>
+                  <span>Shipping</span>
                   <span className="font-semibold text-slate-900">
                     {shippingFee === 0 ? "FREE" : formatPrice(shippingFee)}
                   </span>
                 </div>
-                <div className="flex justify-between text-sm font-black text-slate-900 pt-2 border-t border-slate-200">
-                  <span>Total Due</span>
-                  <span className="text-base text-brand-600">{formatPrice(cartFinalTotal)}</span>
+                <div className="flex justify-between text-sm font-black text-slate-900 pt-1.5 border-t border-slate-200">
+                  <span>Total</span>
+                  <span className="text-emerald-600">{formatPrice(cartFinalTotal)}</span>
                 </div>
               </div>
 
-              {/* Proceed to Checkout CTA */}
               <button
                 onClick={handleProceedCheckout}
-                className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-500/30 flex items-center justify-center gap-2 text-xs transition-all active:scale-95"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 sm:py-3 rounded-xl shadow-md flex items-center justify-center gap-1.5 text-xs transition-all"
               >
-                <span>Proceed to Multi-Vendor Checkout</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Proceed to E-Bazar Checkout</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
-
-              <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 font-medium">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>256-bit Encrypted Multi-Vendor Escrow Checkout</span>
-              </div>
             </div>
           )}
         </div>
@@ -280,4 +236,3 @@ export default function CartDrawer() {
     </div>
   );
 }
-
