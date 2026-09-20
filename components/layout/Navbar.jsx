@@ -121,12 +121,12 @@ export default function Navbar() {
             {/* Wishlist Button */}
             <button
               onClick={() => setIsWishlistOpen(true)}
-              className="relative p-2 rounded-xl text-slate-700 hover:text-emerald-600 hover:bg-slate-100 transition-colors"
+              className="relative p-2 rounded-xl text-slate-700 hover:text-emerald-600 hover:bg-slate-100 transition-all active:scale-95 group"
               title="View Wishlist"
             >
-              <Heart className="w-5 h-5" />
+              <Heart className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
               {wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-white">
+                <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-white animate-scale-up">
                   {wishlistCount}
                 </span>
               )}
@@ -135,13 +135,13 @@ export default function Navbar() {
             {/* Cart Button */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 p-2 sm:px-3.5 sm:py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-200 hover:shadow-lg transition-all"
+              className="flex items-center gap-2 p-2 sm:px-3.5 sm:py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white shadow-md shadow-emerald-200 hover:shadow-lg transition-all active:scale-95 group btn-interactive"
               title="View Cart"
             >
               <div className="relative">
-                <ShoppingCart className="w-5 h-5" />
+                <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-2.5 -right-2.5 bg-amber-400 text-slate-950 text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-white">
+                  <span className="absolute -top-2.5 -right-2.5 bg-amber-400 text-slate-950 text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-white animate-scale-up">
                     {cartCount}
                   </span>
                 )}

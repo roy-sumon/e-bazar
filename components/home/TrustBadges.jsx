@@ -39,10 +39,10 @@ export default function TrustBadges() {
           return (
             <div
               key={idx}
-              className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4"
+              className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-emerald-300/60 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 hover-lift group"
             >
               <div
-                className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 border ${b.color}`}
+                className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 border ${b.color} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}
               >
                 <Icon className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>

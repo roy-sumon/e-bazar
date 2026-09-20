@@ -16,6 +16,14 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "E-Bazar - Modern Multi-Vendor Marketplace",
   description: "Experience E-Bazar, the next-generation multi-vendor e-commerce platform. Shop verified brand flagship stores, flash sale discounts, and authentic products.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" }
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/apple-touch-icon.png"
+  }
 };
 
 export default function RootLayout({ children }) {

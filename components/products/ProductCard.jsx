@@ -20,7 +20,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
 
   if (viewMode === "list") {
     return (
-      <div className="bg-white rounded-xl sm:rounded-2xl border border-slate-200/80 p-3 sm:p-4 hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row gap-3 sm:gap-5 group">
+      <div className="bg-white rounded-xl sm:rounded-2xl border border-slate-200/80 p-3 sm:p-4 hover:shadow-xl hover:border-emerald-300/80 transition-all duration-300 flex flex-col sm:flex-row gap-3 sm:gap-5 group hover-lift">
         {/* Thumbnail */}
         <div
           className="relative w-full sm:w-48 h-44 sm:h-48 rounded-xl overflow-hidden bg-slate-100 shrink-0 cursor-pointer"
@@ -29,7 +29,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
           <img
             src={product.image}
             alt={product.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
           />
           {product.discountPercentage > 0 && (
             <span className="absolute top-2 left-2 sm:top-2.5 sm:left-2.5 bg-rose-600 text-white text-[10px] sm:text-[11px] font-black px-2 py-0.5 rounded-md shadow-sm">
@@ -130,7 +130,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
 
   // Grid view (Default)
   return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 p-2.5 sm:p-4 hover:shadow-xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between group relative">
+    <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/80 p-2.5 sm:p-4 hover:shadow-2xl hover:border-emerald-300/80 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative hover-lift">
       {/* Discount Badge */}
       {product.discountPercentage > 0 && (
         <span className="absolute top-2 left-2 sm:top-3.5 sm:left-3.5 z-10 bg-rose-600 text-white text-[10px] sm:text-[11px] font-black px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-lg shadow-sm">
@@ -141,7 +141,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
       {/* Wishlist Heart button */}
       <button
         onClick={() => toggleWishlist(product)}
-        className="absolute top-2 right-2 sm:top-3.5 sm:right-3.5 z-10 p-1.5 sm:p-2 rounded-full bg-white/90 hover:bg-white text-slate-600 hover:text-rose-500 shadow-sm transition-all"
+        className="absolute top-2 right-2 sm:top-3.5 sm:right-3.5 z-10 p-1.5 sm:p-2 rounded-full bg-white/90 hover:bg-white text-slate-600 hover:text-rose-500 hover:scale-110 active:scale-90 shadow-sm transition-all duration-200"
         title="Wishlist"
       >
         <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isFav ? "fill-rose-500 text-rose-500" : ""}`} />
@@ -155,7 +155,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
         <img
           src={product.image}
           alt={product.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
         />
 
         {/* Quick View Button on Hover */}
@@ -230,7 +230,7 @@ export default function ProductCard({ product, viewMode = "grid" }) {
           {/* Add to Cart Button */}
           <button
             onClick={() => addToCart(product, 1)}
-            className="w-full bg-slate-900 hover:bg-emerald-600 text-white text-[11px] sm:text-xs font-bold py-2 sm:py-2.5 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 transition-colors shadow-sm active:scale-95"
+            className="w-full bg-slate-900 hover:bg-emerald-600 text-white text-[11px] sm:text-xs font-bold py-2 sm:py-2.5 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-emerald-900/20 active:scale-95 btn-interactive"
           >
             <ShoppingCart className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>Add to Cart</span>

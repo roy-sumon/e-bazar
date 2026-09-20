@@ -37,14 +37,14 @@ export default function FeaturedVendors() {
           return (
             <div
               key={vendor.id}
-              className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-2xl hover:border-emerald-300/80 transition-all duration-300 flex flex-col justify-between group hover-lift"
             >
               {/* Vendor Cover Banner */}
               <div className="relative h-28 w-full bg-slate-800 overflow-hidden">
                 <img
                   src={vendor.banner}
                   alt={vendor.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
                 <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-slate-800 text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
@@ -63,7 +63,7 @@ export default function FeaturedVendors() {
                       <img
                         src={vendor.avatar}
                         alt={vendor.name}
-                        className="w-16 h-16 rounded-2xl border-4 border-white shadow-md object-cover bg-white"
+                        className="w-16 h-16 rounded-2xl border-4 border-white shadow-md object-cover bg-white group-hover:scale-105 group-hover:shadow-lg transition-all duration-300"
                       />
                       {vendor.verified && (
                         <CheckCircle2 className="w-5 h-5 fill-brand-600 text-white absolute -bottom-1 -right-1" />

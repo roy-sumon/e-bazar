@@ -91,7 +91,7 @@ export default function FlashSaleSection() {
             return (
               <div
                 key={product.id}
-                className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 text-slate-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group relative"
+                className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 text-slate-900 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative hover-lift hover:-translate-y-1.5"
               >
                 {/* Discount Ribbon */}
                 <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 bg-rose-600 text-white text-[10px] sm:text-xs font-black px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-md sm:rounded-lg shadow-sm">
@@ -101,7 +101,7 @@ export default function FlashSaleSection() {
                 {/* Wishlist Quick Button */}
                 <button
                   onClick={() => toggleWishlist(product)}
-                  className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 p-1.5 sm:p-2 rounded-full bg-white/90 hover:bg-white text-slate-600 hover:text-rose-500 shadow-sm transition-all"
+                  className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 p-1.5 sm:p-2 rounded-full bg-white/90 hover:bg-white text-slate-600 hover:text-rose-500 hover:scale-110 active:scale-90 shadow-sm transition-all duration-200"
                   title="Add to Wishlist"
                 >
                   <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isFav ? "fill-rose-500 text-rose-500" : ""}`} />
@@ -115,7 +115,7 @@ export default function FlashSaleSection() {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500 ease-out"
                   />
                   {/* Quick View overlay */}
                   <div className="hidden sm:flex absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity items-center justify-center">
@@ -176,7 +176,7 @@ export default function FlashSaleSection() {
                     {/* Add to Cart CTA */}
                     <button
                       onClick={() => addToCart(product, 1)}
-                      className="w-full bg-slate-900 hover:bg-brand-600 text-white text-[11px] sm:text-xs font-bold py-2 sm:py-2.5 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 transition-colors shadow-sm active:scale-95"
+                      className="w-full bg-slate-900 hover:bg-rose-600 text-white text-[11px] sm:text-xs font-bold py-2 sm:py-2.5 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-rose-900/20 active:scale-95 btn-interactive"
                     >
                       <ShoppingCart className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       <span>Add to Cart</span>
