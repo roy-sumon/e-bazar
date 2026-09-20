@@ -63,17 +63,17 @@ export default function FlashSaleSection() {
               Ends In:
             </span>
             <div className="flex items-center gap-1 sm:gap-1.5 font-mono font-black text-xs sm:text-base" suppressHydrationWarning>
-              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg" suppressHydrationWarning>
+              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg">
                 {String(timeLeft.hours).padStart(2, "0")}
                 <span className="block text-[8px] sm:text-[9px] font-sans font-normal text-rose-200 text-center">HRS</span>
               </div>
               <span className="text-amber-300 font-bold">:</span>
-              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg" suppressHydrationWarning>
+              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg">
                 {String(timeLeft.minutes).padStart(2, "0")}
                 <span className="block text-[8px] sm:text-[9px] font-sans font-normal text-rose-200 text-center">MIN</span>
               </div>
               <span className="text-amber-300 font-bold">:</span>
-              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-amber-300" suppressHydrationWarning>
+              <div className="bg-white/20 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-amber-300">
                 {String(timeLeft.seconds).padStart(2, "0")}
                 <span className="block text-[8px] sm:text-[9px] font-sans font-normal text-rose-200 text-center">SEC</span>
               </div>
