@@ -130,7 +130,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-8 sm:mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-[10px] sm:text-[11px] text-center sm:text-left">
-            © 2026 E-Bazar Inc. All rights reserved. Senior-Developer Engineered Multi-Vendor Platform.
+            © 2026 Sumon. All rights reserved. Developed by <span className="text-slate-300 font-medium">Sumon</span>.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] font-bold text-slate-400">
