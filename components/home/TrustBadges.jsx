@@ -32,14 +32,14 @@ export default function TrustBadges() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {BADGES.map((b, idx) => {
           const Icon = b.icon;
           return (
             <div
               key={idx}
-              className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-emerald-300/60 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 hover-lift group"
+              className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-emerald-300/60 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 hover-lift group"
             >
               <div
                 className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 border ${b.color} group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}

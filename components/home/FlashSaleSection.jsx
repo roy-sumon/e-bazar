@@ -33,8 +33,8 @@ export default function FlashSaleSection() {
   const flashProducts = products.filter((p) => p.isFlashSale).slice(0, 4);
 
   return (
-    <section id="flash-deals" className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-10">
-      <div className="bg-gradient-to-r from-rose-500 via-rose-600 to-amber-600 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-xl">
+    <section id="flash-deals" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="bg-gradient-to-r from-rose-500 via-rose-600 to-amber-600 rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white shadow-xl">
         {/* Header with Live Countdown */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-white/20">
           <div className="flex items-center gap-2.5 sm:gap-3">

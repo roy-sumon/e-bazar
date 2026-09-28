@@ -82,7 +82,7 @@ export default function HeroBanner() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8 sm:py-8 lg:pb-10">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch">
         {/* Main Hero Slider (8 Cols on Desktop) */}
         <div className="lg:col-span-8 relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl bg-gradient-to-r text-white min-h-[380px] sm:min-h-[480px] flex items-center transition-all duration-700">
@@ -167,9 +167,9 @@ export default function HeroBanner() {
         </div>
 
         {/* Side Banner Cards (4 Cols on Desktop) */}
-        <div className="lg:col-span-4 flex flex-col gap-4 sm:gap-6">
+        <div className="lg:col-span-4 flex flex-col gap-5 sm:gap-6 mt-4 lg:mt-0">
           {/* Card 1: Multi-Vendor Seller Call to Action */}
-          <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white border border-emerald-800/40 relative overflow-hidden shadow-xl flex flex-col justify-between flex-1 group">
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-6 pb-6 sm:pb-6 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white border border-emerald-800/40 relative overflow-hidden shadow-xl flex flex-col justify-between flex-1 group">
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
                 <Store className="w-4 h-4 text-amber-400" />
@@ -178,15 +178,15 @@ export default function HeroBanner() {
               <h3 className="text-lg sm:text-xl font-black text-white leading-snug mb-2">
                 Sell to 1.2M+ Shoppers on E-Bazar
               </h3>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
+              <p className="text-slate-300 text-xs leading-relaxed mb-5">
                 Open your verified store in minutes. 0% setup fee, automated multi-carrier logistics, and instant daily payouts.
               </p>
             </div>
 
-            <div className="relative z-10 pt-2">
+            <div className="relative z-10 pt-3 sm:pt-4">
               <button
                 onClick={() => setIsSellerPortalOpen(true)}
-                className="w-full bg-white text-emerald-950 font-bold py-2.5 sm:py-3 rounded-xl hover:bg-emerald-50 shadow-md transition-all flex items-center justify-center gap-2 text-xs sm:text-sm"
+                className="w-full bg-white text-emerald-950 font-bold py-3 rounded-xl hover:bg-emerald-50 shadow-md transition-all flex items-center justify-center gap-2 text-xs sm:text-sm active:scale-98"
               >
                 <span>Launch Vendor Dashboard</span>
                 <ArrowRight className="w-4 h-4 text-emerald-600" />
@@ -195,7 +195,7 @@ export default function HeroBanner() {
           </div>
 
           {/* Card 2: Exclusive E-Bazar Guarantee */}
-          <div className="rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white border border-slate-200 shadow-xl flex flex-col justify-between flex-1">
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-6 pb-6 sm:pb-6 bg-white border border-slate-200 shadow-xl flex flex-col justify-between flex-1">
             <div className="flex items-start gap-3 sm:gap-4">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-100">
                 <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />

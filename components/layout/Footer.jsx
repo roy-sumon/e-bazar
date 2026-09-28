@@ -128,7 +128,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-8 sm:mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-8 sm:mt-12 pt-6 pb-6 sm:pb-0 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-[10px] sm:text-[11px] text-center sm:text-left">
             © 2026 E-Bazar. All rights reserved. Developed by <span className="text-slate-300 font-medium">Sumon</span>.
           </p>
