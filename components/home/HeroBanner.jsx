@@ -169,7 +169,7 @@ export default function HeroBanner() {
         {/* Side Banner Cards (4 Cols on Desktop) */}
         <div className="lg:col-span-4 flex flex-col gap-5 sm:gap-6 mt-4 lg:mt-0">
           {/* Card 1: Multi-Vendor Seller Call to Action */}
-          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-6 pb-6 sm:pb-6 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white border border-emerald-800/40 relative overflow-hidden shadow-xl flex flex-col justify-between flex-1 group">
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-6 pb-8 sm:pb-6 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white border border-emerald-800/40 relative overflow-hidden shadow-xl flex flex-col justify-between flex-1 group">
             <div className="relative z-10">
               <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
                 <Store className="w-4 h-4 text-amber-400" />
@@ -183,7 +183,7 @@ export default function HeroBanner() {
               </p>
             </div>
 
-            <div className="relative z-10 pt-3 sm:pt-4">
+            <div className="relative z-10 pt-3 sm:py-4">
               <button
                 onClick={() => setIsSellerPortalOpen(true)}
                 className="w-full bg-white text-emerald-950 font-bold py-3 rounded-xl hover:bg-emerald-50 shadow-md transition-all flex items-center justify-center gap-2 text-xs sm:text-sm active:scale-98"
