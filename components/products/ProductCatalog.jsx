@@ -53,9 +53,11 @@ export default function ProductCatalog() {
           if (!matchTitle && !matchDesc && !matchTag) return false;
         }
 
-        // Category
+        // Category filter (searches globally across all categories when searchQuery is active)
         if (selectedCategory !== "all" && p.category !== selectedCategory) {
-          return false;
+          if (!searchQuery.trim()) {
+            return false;
+          }
         }
 
         // Vendor
